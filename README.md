@@ -10,3 +10,10 @@
 - show remaining savings per category 
 - enter timeframe for how long the money will last 
 
+Multiple Classes:
+
+Account - hold account information
+
+Bank - has all the withdrawal/deposit functions for each category of the budgeting system
+
+Budget - has the categories and the breakdown of the actual budgeting system.
