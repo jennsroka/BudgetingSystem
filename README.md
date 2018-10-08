@@ -12,8 +12,8 @@
 
 Multiple Classes:
 
-Account - hold account information
+Account - hold account information -- Jenn 
 
-Bank - has all the withdrawal/deposit functions for each category of the budgeting system
+Bank - has all the withdrawal/deposit functions for each category of the budgeting system - Jenn
 
 Budget - has the categories and the breakdown of the actual budgeting system.
