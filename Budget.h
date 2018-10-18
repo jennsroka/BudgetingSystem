@@ -1,7 +1,5 @@
 #ifndef Budget_H
-#define BUdget_H
-
-using namespace std;
+#define Budget_H
 
 class budget{
     public:

@@ -1,11 +1,9 @@
-#ifndef Budget_CC
-#define BUdget_CC
 #include "Budget.h"
 #include <iostream>
 #include <string>
 #include <iomanip>
 
-
+using namespace std;
 void budget::get_spent(budget &s){
     cout << "let's start type in how much you spent so far! \n";
     cout << "__________________________________________________ \n"; 
@@ -56,4 +54,3 @@ void budget::calculate(double a, double b){
     }
 }
 
-#endif
