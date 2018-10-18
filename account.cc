@@ -13,6 +13,7 @@ class account
 		{
 			first = "";
 			last = "";
+			pin = "";
 		}
 		void set_name(string f, string l)
 		{
