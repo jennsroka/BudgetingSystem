@@ -5,6 +5,9 @@ using namespace std;
 
 int main(){
     double car,cloth,rent,food,utility;
+    budget set(car,cloth,rent,food,utility);
+    budget spent;
+
     cout<<"please typing your monthly budget"<<endl;
     cout<<"budget constraints of car:";
     cin>>car;
@@ -16,8 +19,7 @@ int main(){
     cin>>food;
     cout<<"budget constraints of utility:";
     cin>>utility;
-    budget set = budget(car,cloth,rent,food,utility);
-    budget spent = budget();
+
     get_spent(spent);
     display(set,spent);
     return 0;
