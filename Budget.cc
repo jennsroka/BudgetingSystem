@@ -4,6 +4,19 @@
 #include <iomanip>
 
 using namespace std;
+void budget::reset(budget &q){
+    cout<<"please typing your monthly budget"<<endl;
+    cout<<"budget constraints of car:";
+    cin>>q.car;
+    cout<<"budget constraints of clothes:";
+    cin>>q.cloth;
+    cout<<"budget constraints of rent:";
+    cin>>q.rent;
+    cout<<"budget constraints of food:";
+    cin>>q.food;
+    cout<<"budget constraints of utility:";
+    cin>>q.utility;}
+
 void budget::get_spent(budget &s){
     cout << "let's start type in how much you spent so far! \n";
     cout << "__________________________________________________ \n"; 
