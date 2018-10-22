@@ -2,11 +2,11 @@
 #include <iomanip>
 #include "Budget.h"
 using namespace std;
-
 int main(){
     double car,cloth,rent,food,utility;
     budget set(car,cloth,rent,food,utility);
     budget spent;
+    budget a;
 
     cout<<"please typing your monthly budget"<<endl;
     cout<<"budget constraints of car:";
@@ -20,8 +20,8 @@ int main(){
     cout<<"budget constraints of utility:";
     cin>>utility;
 
-    get_spent(spent);
-    display(set,spent);
+    a.get_spent(spent);
+    a.display(set,spent);
     return 0;
 }
 
