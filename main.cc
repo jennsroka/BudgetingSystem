@@ -4,7 +4,6 @@
 using namespace std;
 int main(){
     double car=0,cloth=0,rent=0,food=0,utility=0;
-    budget set(car,cloth,rent,food,utility);
     budget spent;
     budget a;
 
@@ -19,6 +18,8 @@ int main(){
     cin>>food;
     cout<<"budget constraints of utility:";
     cin>>utility;
+
+    budget set(car,cloth,rent,food,utility);
 
     a.get_spent(spent);
     a.display(set,spent);
