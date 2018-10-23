@@ -16,7 +16,7 @@ int main(){
     budget spent,set;
     budget a;
     while (true){
-	cout<<"MEAU:"<<endl;
+	cout<<"MENU:"<<endl;
 	cout<<"1- add your spent for today" <<endl;
 	cout<<"2- " <<endl;
 	cout<<"3- " <<endl;

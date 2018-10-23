@@ -5,52 +5,52 @@
 
 using namespace std;
 void budget::reset(budget &q){
-    cout<<"please typing your monthly budget"<<endl;
-    cout<<"budget constraints of car:";
+    cout<<"Please enter your monthly budget components"<<endl;
+    cout<<"Budget constraints of car:";
     cin>>q.car;
-    cout<<"budget constraints of clothes:";
+    cout<<"Budget constraints of clothes:";
     cin>>q.cloth;
-    cout<<"budget constraints of rent:";
+    cout<<"Budget constraints of rent:";
     cin>>q.rent;
-    cout<<"budget constraints of food:";
+    cout<<"Budget constraints of food:";
     cin>>q.food;
-    cout<<"budget constraints of utility:";
+    cout<<"Budget constraints of utility:";
     cin>>q.utility;}
 
 void budget::get_spent(budget &s){
-    cout << "let's start type in how much you spent so far! \n";
+    cout << "Let's start! Type in how much you spent so far! \n";
     cout << "__________________________________________________ \n"; 
     cout << "-------------------------------------------------- \n";
-    cout << "spent for car (input number only) \n";
+    cout << "Spent on car (input number only) \n";
     cin >> s.car;
-    cout << "spent for clothes (input number only) \n";
+    cout << "Spent on clothes (input number only) \n";
     cin >> s.cloth;
-    cout << "spent with the rent (input number only) \n";
+    cout << "Spent for rent (input number only) \n";
     cin >> s.rent;
-    cout << "spent for food (input number only) \n";
+    cout << "Spent on food (input number only) \n";
     cin >> s.food;
-    cout << "spend for utility (input number only) \n";
+    cout << "Spend on utilities (input number only) \n";
     cin >> s.utility;
 }
 
 void budget::display(budget x, budget y){
     double total, spent;
     cout<<endl<<"Monthly budget report"<<endl;
-    cout<<"car: $";
+    cout<<"Car: $";
     calculate(x.car,y.car);
-    cout<<"cloth: $";
+    cout<<"Cloth: $";
     calculate(x.cloth,y.cloth);
-    cout<<"rent: $";
+    cout<<"Rent: $";
     calculate(x.rent,y.rent);
-    cout<<"food: $";
+    cout<<"Food: $";
     calculate(x.food,y.food);
-    cout<<"utility: $";
+    cout<<"Utility: $";
     calculate(x.utility,y.utility);
 
     total = x.car+x.cloth+x.rent+x.food+x.utility;
     spent = y.car+y.cloth+y.rent+y.food+y.utility;
     cout<<"Total Monthly budget constraints: $"<<total<<endl;
-    cout<<"Total of Spent: $"<<spent<<endl;
+    cout<<"Total spent: $"<<spent<<endl;
     cout<<"Total: $";
     calculate(total,spent);
 }
