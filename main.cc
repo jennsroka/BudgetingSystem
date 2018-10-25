@@ -1,5 +1,7 @@
 #include <iostream>
 #include <iomanip>
+#include <string>
+#include <sstream>
 #include <fstream>
 #include <cstdlib>
 #include "Budget.h"
