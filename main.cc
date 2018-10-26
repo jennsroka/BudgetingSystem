@@ -15,6 +15,34 @@ int readInt(string prompt){
 	return inputInt;}
 
 int main(){
+    ifstream inFile;
+    double car;
+    double clothes;
+    double food;
+    double utilities;
+    double rent;
+    inFile.open("budgeting.csv");
+    if(inFile.is_open()){
+	cout << "File has been opened" << endl;
+    }
+    else{
+	cout << "NO FILE HAS BEEN OPENED" << endl;
+    }
+
+    while(!inFile.eof()){
+	inFile >> car;
+	inFile >>  clothes;
+	inFile >> food;
+	inFile >> utilities;
+	inFile >> rent;
+	cout << "Car: " << car << endl;
+	cout << "Clothes: " << clothes << endl;
+	cout << "Food: " << food << endl;
+	cout << "Utilities: " << utilities << endl;
+	cout << "Rent: " << rent << endl;
+    }
+    inFile.close();
+
     budget spent,set;
     budget a;
     while (true){
