@@ -15,7 +15,7 @@ int readInt(string prompt){
 	return inputInt;}
 
 int main(){
-    ifstream inFile;
+    ifstream inFile, outFile;
     double car;
     double clothes;
     double food;
@@ -31,7 +31,7 @@ int main(){
 
     while(!inFile.eof()){
 	inFile >> car;
-	inFile >>  clothes;
+	inFile >> clothes;
 	inFile >> food;
 	inFile >> utilities;
 	inFile >> rent;
@@ -50,8 +50,7 @@ int main(){
 	cout<<"1- add your spent for today" <<endl;
 	cout<<"2- " <<endl;
 	cout<<"3- " <<endl;
-	cout<<"4- " <<endl;
-	cout<<"5- " <<endl;
+	cout<<"4- " <<endl;	cout<<"5- " <<endl;
 	cout<<"6- List all spent " <<endl;
 	cout<<"7- " <<endl;
 	cout<<"8- " <<endl;
@@ -82,8 +81,18 @@ int main(){
 			break;
 		case 9:
 			a.reset(set);
-			break;}
+			break;
+		case 0:
+			 outFile.open("budgeting.csv");
+        		outFile << car << endl;
+        		outFile << clothes << endl;
+        		outFile << food << endl;
+        		outFile << utilities << endl;
+        		outFile << rent << endl;
+        		outFile.close();
+			break;
+		}
 		}	
-	
+   
     return 0;
 }
