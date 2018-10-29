@@ -15,7 +15,8 @@ int readInt(string prompt){
 	return inputInt;}
 
 int main(){
-    ifstream inFile, outFile;
+    ifstream inFile;
+    ofstream outFile;
     double car;
     double clothes;
     double food;
