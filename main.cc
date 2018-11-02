@@ -44,7 +44,8 @@ int main(){
     }
     inFile.close();
 
-    budget spent,set;
+    budget set;
+    budget spent(car,clothes, food, utilities, rent);
     budget a;
     while (true){
 	cout<<"MENU:"<<endl;
