@@ -6,13 +6,6 @@
 #include <cstdlib>
 #include "Budget.h"
 using namespace std;
-int readInt(string prompt){
-	string inputstring;
-	int inputInt;
-	cout<<prompt;
-	getline(cin,inputstring);
-	stringstream(inputstring) >> inputInt;
-	return inputInt;}
 
 int main(){
     ifstream inFile;
@@ -53,8 +46,9 @@ int main(){
 	cout<<"2- List all spent" <<endl;
 	cout<<"3- reset the monthly budget" <<endl;
 	cout<<"0- Exit and save" <<endl;
+	int option;
+	cin>>option;
 
-	int option = readInt("option: ");
 	if (option ==0){
 		break;}
 	switch (option){
