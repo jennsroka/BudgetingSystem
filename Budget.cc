@@ -1,6 +1,7 @@
 #include "Budget.h"
 #include <iostream>
 #include <string>
+#include <cctype>
 #include <iomanip>
 
 using namespace std;
@@ -21,16 +22,70 @@ void budget::get_spent(budget &s){
     cout << "Let's start! Type in how much you spent so far! \n";
     cout << "__________________________________________________ \n"; 
     cout << "-------------------------------------------------- \n";
-    cout << "Spent on car (input number only) \n";
-    cin >> s.car;
-    cout << "Spent on clothes (input number only) \n";
-    cin >> s.cloth;
-    cout << "Spent for rent (input number only) \n";
-    cin >> s.rent;
-    cout << "Spent on food (input number only) \n";
-    cin >> s.food;
-    cout << "Spend on utilities (input number only) \n";
-    cin >> s.utility;
+    cout << "1- add spent for car"<<endl;
+    cout << "2- add spent for clothes"<<endl;
+    cout << "3- add spent for rent"<<endl;
+    cout << "4- add spent for food"<<endl;
+    cout << "5- add spent for utilities"<<endl;
+    int num;
+    cin>>num;
+    switch(num){
+	case 1:
+    	    cout << "Spent on car (input number only) \n";
+            cin >> s.car;
+	    break;
+	case 2:
+    	    cout << "Spent on clothes (input number only) \n";
+    	    cin >> s.cloth;
+	    break;
+	case 3:
+    	    cout << "Spent for rent (input number only) \n";
+    	    cin >> s.rent;
+	    break;
+	case 4:
+    	    cout << "Spent on food (input number only) \n";
+    	    cin >> s.food;
+	    break;
+	case 5:
+    	    cout << "Spend on utilities (input number only) \n";
+    	    cin >> s.utility;
+	    break;
+    }
+    cout<<"Do you want to add another? (y/n)"<<endl;
+    char opt;
+    cin>>opt;
+    while(opt == 'y'){
+    	cout << "1- add spent for car"<<endl;
+    	cout << "2- add spent for clothes"<<endl;
+    	cout << "3- add spent for rent"<<endl;
+    	cout << "4- add spent for food"<<endl;
+    	cout << "5- add spent for utilities"<<endl;
+    	int num;
+    	cin>>num;
+    	switch(num){
+		case 1:
+    		    cout << "Spent on car (input number only) \n";
+        	    cin >> s.car;
+		    break;
+		case 2:
+    		    cout << "Spent on clothes (input number only) \n";
+    		    cin >> s.cloth;
+		    break;
+		case 3:
+    		    cout << "Spent for rent (input number only) \n";
+    		    cin >> s.rent;
+		    break;
+		case 4:
+    		    cout << "Spent on food (input number only) \n";
+    		    cin >> s.food;
+		    break;
+		case 5:
+    		    cout << "Spend on utilities (input number only) \n";
+    		    cin >> s.utility;
+		    break;
+    	}
+	cout<<"Do you want to adding another? (y/n)"<<endl;
+    	cin>>opt;}
 }
 
 void budget::display(budget x, budget y){
