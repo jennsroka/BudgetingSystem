@@ -46,12 +46,9 @@ int main(){
 	cout << "Choice: ";
 	int option;
 	cin>>option;
-	if (option ==0){
-		outs.open("budgeting.csv");
-		a.output(outs);
-		outs.close();
+	if (option==0){
 		break;
-		}
+	}
 	switch (option){
 		case 1:
 			a.get_spent(spent);
@@ -64,7 +61,11 @@ int main(){
 			break;
 		case 0:
 			outs.open("budgeting.csv");
-			a.output(outs);
+			outs << car << endl;
+        		outs << cloth << endl;
+        		outs << rent << endl;
+        		outs << food << endl;
+        		outs << utility << endl;
 			outs.close();
 			break;
 		}

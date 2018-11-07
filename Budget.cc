@@ -28,6 +28,7 @@ void budget::get_spent(budget &s){
     cout << "3- add spent for rent"<<endl;
     cout << "4- add spent for food"<<endl;
     cout << "5- add spent for utilities"<<endl;
+    cout << "Choice: ";
     int num;
     cin>>num;
     switch(num){
@@ -117,21 +118,11 @@ void budget::calculate(double &a, double &b){
         cout<<setw(7)<<a-b;
         cout<<" under. \n";
     }
-    else{
+    else if(b>a){
         cout<<setw(7)<<b-a;
         cout<<" over. \n";
     }
-}
-
-void budget::output(std::ofstream& outs){
-        outs << car << endl;
-        outs << cloth << endl;
-        outs << rent << endl;
-        outs << food << endl;
-        outs << utility << endl;
-}
-
-std::ofstream& operator <<(std::ofstream& outs, budget& a){
-	a.output(outs);
-	return outs;
+    else{
+	cout << "at budget limit!" << endl;
+    }
 }
