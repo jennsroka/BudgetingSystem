@@ -11,9 +11,31 @@ int main(){
     budget a;
     ofstream outs;
     ifstream ins;
-    a.input(ins);
-    budget set;
     double car, cloth, rent, food, utility;
+    ins.open("budgeting.csv");
+    if(ins.is_open()){
+	cout << "File has been opened" << endl;
+    }
+    else{
+	cout << "NO FILE HAS BEEN OPENED" << endl;
+    }
+
+    while(!ins.eof()){
+	ins >> car;
+	ins >> cloth;
+	ins >> rent;
+	ins >> food;
+	ins >> utility;
+	if(ins.eof()) break;
+	cout << "Your current amount spent for each category is: " << endl;
+	cout << "Car: $" << car << endl;
+	cout << "Clothes: $" << cloth << endl;
+	cout << "Rent: $" << rent << endl;
+	cout << "Food: $" << food << endl;
+	cout << "Utilities: $" << utility << endl;
+    }
+    ins.close();
+    budget set;
     budget spent(car, cloth, rent, food, utility);
     while (true){
 	cout<<"MENU:"<<endl;
@@ -21,10 +43,15 @@ int main(){
 	cout<<"2- List all spent" <<endl;
 	cout<<"3- reset the monthly budget" <<endl;
 	cout<<"0- Exit and save" <<endl;
+	cout << "Choice: ";
 	int option;
 	cin>>option;
 	if (option ==0){
-		break;}
+		outs.open("budgeting.csv");
+		a.output(outs);
+		outs.close();
+		break;
+		}
 	switch (option){
 		case 1:
 			a.get_spent(spent);

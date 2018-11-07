@@ -11,10 +11,9 @@ class budget{
         };
 	void reset(budget &q);
         void get_spent(budget &s);
-        void display(budget x, budget y);
-        void calculate(double a, double b);
+        void display(budget &x, budget &y);
+        void calculate(double &a, double &b);
 	void output(std::ofstream& outs);
-	void input (std::ifstream& ins);
 	friend std::ifstream& operator >>(std::ifstream& ins, budget& a);
 	friend std::ofstream& operator <<(std::ofstream& outs, budget& a);
     private:

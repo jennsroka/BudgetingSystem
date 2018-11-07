@@ -89,7 +89,7 @@ void budget::get_spent(budget &s){
     	cin>>opt;}
 }
 
-void budget::display(budget x, budget y){
+void budget::display(budget &x, budget &y){
     double total, spent;
     cout<<endl<<"Monthly budget report"<<endl;
     cout<<"Car: $";
@@ -111,7 +111,7 @@ void budget::display(budget x, budget y){
     calculate(total,spent);
 }
 
-void budget::calculate(double a, double b){
+void budget::calculate(double &a, double &b){
     cout<<fixed<<showpoint<<setprecision(2);
     if(a>b){
         cout<<setw(7)<<a-b;
@@ -129,36 +129,6 @@ void budget::output(std::ofstream& outs){
         outs << rent << endl;
         outs << food << endl;
         outs << utility << endl;
-}
-
-void budget::input(std::ifstream& ins){
-    ins.open("budgeting.csv");
-    if(ins.is_open()){
-	cout << "File has been opened" << endl;
-    }
-    else{
-	cout << "NO FILE HAS BEEN OPENED" << endl;
-    }
-
-    while(!ins.eof()){
-	ins >> car;
-	ins >> cloth;
-	ins >> rent;
-	ins >> food;
-	ins >> utility;
-	cout << "Your current amount spent for each category is: " << endl;
-	cout << "Car: $" << car << endl;
-	cout << "Clothes: $" << cloth << endl;
-	cout << "Rent: $" << rent << endl;
-	cout << "Food: $" << food << endl;
-	cout << "Utilities: $" << utility << endl;
-    }
-    ins.close();
-}
-
-std::ifstream& operator >>(std::ifstream& ins, budget& a){
-	a.input(ins);
-	return ins;
 }
 
 std::ofstream& operator <<(std::ofstream& outs, budget& a){
