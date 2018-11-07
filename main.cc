@@ -8,38 +8,13 @@
 using namespace std;
 
 int main(){
-    ifstream inFile;
-    ofstream outFile;
-    double car;
-    double clothes;
-    double food;
-    double utilities;
-    double rent;
-    inFile.open("budgeting.csv");
-    if(inFile.is_open()){
-	cout << "File has been opened" << endl;
-    }
-    else{
-	cout << "NO FILE HAS BEEN OPENED" << endl;
-    }
-
-    while(!inFile.eof()){
-	inFile >> car;
-	inFile >> clothes;
-	inFile >> food;
-	inFile >> utilities;
-	inFile >> rent;
-	cout << "Car: " << car << endl;
-	cout << "Clothes: " << clothes << endl;
-	cout << "Food: " << food << endl;
-	cout << "Utilities: " << utilities << endl;
-	cout << "Rent: " << rent << endl;
-    }
-    inFile.close();
-
-    budget set;
-    budget spent(car,clothes, food, utilities, rent);
     budget a;
+    ofstream outs;
+    ifstream ins;
+    a.input(ins);
+    budget set;
+    double car, cloth, rent, food, utility;
+    budget spent(car, cloth, rent, food, utility);
     while (true){
 	cout<<"MENU:"<<endl;
 	cout<<"1- add your spent for today" <<endl;
@@ -48,13 +23,12 @@ int main(){
 	cout<<"0- Exit and save" <<endl;
 	int option;
 	cin>>option;
-
 	if (option ==0){
 		break;}
 	switch (option){
 		case 1:
 			a.get_spent(spent);
-			break;	
+			break;
 		case 2:
 			a.display(set,spent);
 			break;
@@ -62,13 +36,9 @@ int main(){
 			a.reset(set);
 			break;
 		case 0:
-			outFile.open("budgeting.csv");
-        		outFile << car << endl;
-        		outFile << clothes << endl;
-        		outFile << food << endl;
-        		outFile << utilities << endl;
-        		outFile << rent << endl;
-        		outFile.close();
+			outs.open("budgeting.csv");
+			a.output(outs);
+			outs.close();
 			break;
 		}
 		}	
