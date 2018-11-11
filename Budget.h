@@ -12,7 +12,9 @@ class budget{
 	void reset(budget &q);
         void get_spent(budget &s);
         void display(budget &x, budget &y);
-        void calculate(double &a, double &b);   
+        void calculate(double &a, double &b); 
+	void input(std::ifstream &ins, budget &x, budget &y);
+	void output(std::ofstream &outs, budget &x, budget &y);
      private:
         double car, cloth, rent, food, utility;
 };

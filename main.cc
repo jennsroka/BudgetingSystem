@@ -15,6 +15,8 @@ int main(){
     ifstream ins;
     double car, cloth, rent, food, utility;
     budget a;
+    budget set;
+    budget spent(car, cloth, rent, food, utility);
 
     ins.open("budgeting.csv");
     if(ins.is_open()){
@@ -24,23 +26,9 @@ int main(){
 	cout << "NO FILE HAS BEEN OPENED" << endl;
     }
 
-    while(!ins.eof()){
-	ins >> car;
-	ins >> cloth;
-	ins >> rent;
-	ins >> food;
-	ins >> utility;
-	if(ins.eof()) break;
-	cout << "Your current amount spent for each category is: " << endl;
-	cout << "Car: $" << car << endl;
-	cout << "Clothes: $" << cloth << endl;
-	cout << "Rent: $" << rent << endl;
-	cout << "Food: $" << food << endl;
-	cout << "Utilities: $" << utility << endl;
-    }
+    a.input(ins, spent, set);
     ins.close();
-    budget set;
-    budget spent(car, cloth, rent, food, utility);
+
     choice = menu();
     while (choice!=0){
 	switch(choice){
@@ -65,11 +53,7 @@ int main(){
 
     outs.open("budgeting.csv");
     if(!outs.fail()){
-	outs << car << endl;
-        outs << cloth << endl;
-        outs << rent << endl;
-        outs << food << endl;
-        outs << utility << endl;
+	a.output(outs, spent, set);
     }
     else
         cout<<"Problem with saving data!\n";

@@ -34,23 +34,33 @@ void budget::get_spent(budget &s){
     switch(num){
 	case 1:
     	    cout << "Spent on car (input number only) \n";
-            cin >> s.car;
+	    double new_car;
+            cin >> new_car;
+	    s.car += new_car;
 	    break;
 	case 2:
     	    cout << "Spent on clothes (input number only) \n";
-    	    cin >> s.cloth;
+	    double new_cloth;
+    	    cin >> new_cloth;
+	    s.cloth += new_cloth;
 	    break;
 	case 3:
     	    cout << "Spent for rent (input number only) \n";
-    	    cin >> s.rent;
+	    double new_rent;
+    	    cin >> new_rent;
+	    s.rent += new_rent;
 	    break;
 	case 4:
     	    cout << "Spent on food (input number only) \n";
-    	    cin >> s.food;
+	    double new_food;
+    	    cin >> new_food;
+	    s.food += new_food;
 	    break;
 	case 5:
     	    cout << "Spend on utilities (input number only) \n";
-    	    cin >> s.utility;
+	    double new_utility;
+    	    cin >> new_utility;
+	    s.utility += new_utility;
 	    break;
     }
     cout<<"Do you want to add another? (y/n)"<<endl;
@@ -67,23 +77,33 @@ void budget::get_spent(budget &s){
     	switch(num){
 		case 1:
     		    cout << "Spent on car (input number only) \n";
-        	    cin >> s.car;
+		    double car2;
+            	    cin >> car2;
+            	    s.car += car2;
 		    break;
 		case 2:
     		    cout << "Spent on clothes (input number only) \n";
-    		    cin >> s.cloth;
+		    double cloth2;
+    	    	    cin >> cloth2;
+	   	    s.cloth += cloth2;
 		    break;
 		case 3:
     		    cout << "Spent for rent (input number only) \n";
-    		    cin >> s.rent;
+    		    double rent2;
+    	    	    cin >> rent2;
+	    	    s.rent += rent2;
 		    break;
 		case 4:
     		    cout << "Spent on food (input number only) \n";
-    		    cin >> s.food;
+    		    double food2;
+    	   	    cin >> food2;
+	    	    s.food += food2;
 		    break;
 		case 5:
     		    cout << "Spend on utilities (input number only) \n";
-    		    cin >> s.utility;
+    		    double utility2;
+    	    	    cin >> utility2;
+	    	    s.utility += utility2;
 		    break;
     	}
 	cout<<"Do you want to adding another? (y/n)"<<endl;
@@ -93,15 +113,15 @@ void budget::get_spent(budget &s){
 void budget::display(budget &x, budget &y){
     double total, spent;
     cout<<endl<<"Monthly budget report"<<endl;
-    cout<<"Car: $";
+    cout<<"Car spent: $" << y.car << endl;
     calculate(x.car,y.car);
-    cout<<"Cloth: $";
+    cout<<"Cloth spent: $" << y.cloth << endl;
     calculate(x.cloth,y.cloth);
-    cout<<"Rent: $";
+    cout<<"Rent spent: $" << y.rent << endl;
     calculate(x.rent,y.rent);
-    cout<<"Food: $";
+    cout<<"Food spent: $" << y.food << endl;
     calculate(x.food,y.food);
-    cout<<"Utility: $";
+    cout<<"Utility spent: $" << y.utility << endl;
     calculate(x.utility,y.utility);
 
     total = x.car+x.cloth+x.rent+x.food+x.utility;
@@ -116,13 +136,52 @@ void budget::calculate(double &a, double &b){
     cout<<fixed<<showpoint<<setprecision(2);
     if(a>b){
         cout<<setw(7)<<a-b;
-        cout<<" under. \n";
+        cout<<" under budget. \n";
     }
     else if(b>a){
         cout<<setw(7)<<b-a;
-        cout<<" over. \n";
+        cout<<" over budget. \n";
     }
     else{
-	cout << "at budget limit!" << endl;
+	cout << " At budget limit!" << endl;
     }
+}
+void budget::input(std::ifstream &ins, budget &x, budget &y){
+	while(true){
+	ins >> x.car;
+	ins >> x.cloth;
+	ins >> x.rent;
+	ins >> x.food;
+	ins >> x.utility;
+	ins >> y.car;
+	ins >> y.cloth;
+	ins >> y.rent;
+	ins >> y.food;
+	ins >> y.utility;
+	if(ins.eof()) break;
+	cout << "Your current amount spent for each category is: " << endl;
+	cout << "Car: $" << x.car << endl;
+	cout << "Clothes: $" << x.cloth << endl;
+	cout << "Rent: $" << x.rent << endl;
+	cout << "Food: $" << x.food << endl;
+	cout << "Utilities: $" << x.utility << endl;
+	cout << "Your current monthly constraints are: " << endl;
+	cout << "Car: $" << y.car << endl;
+	cout << "Clothes: $" << y.cloth << endl;
+	cout << "Rent: $" << y.rent << endl;
+	cout << "Food: $" << y.food << endl;
+	cout << "Utilities: $" << y.utility << endl;
+	}
+}
+void budget::output(std::ofstream &outs, budget &x, budget &y){
+	outs << x.car << endl;
+        outs << x.cloth << endl;
+        outs << x.rent << endl;
+        outs << x.food << endl;
+        outs << x.utility << endl;
+	outs << y.car << endl;
+        outs << y.cloth << endl;
+        outs << y.rent << endl;
+        outs << y.food << endl;
+        outs << y.utility << endl;
 }
