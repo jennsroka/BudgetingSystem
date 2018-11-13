@@ -1,3 +1,8 @@
+/** 
+	@file main.cc
+	@brief this file runs the program and uses the Budget class to determine spent amounts and how those pertain to the monthly budget
+**/
+
 #include <iostream>
 #include <iomanip>
 #include <string>
@@ -9,6 +14,10 @@
 using namespace std;
 int menu();
 
+/**
+	@brief this is the main function that runs the program
+	@return is int
+**/
 int main(){
     int choice;
     ofstream outs;
@@ -60,7 +69,10 @@ int main(){
     outs.close();
     return 0;
 }
-
+/**
+        @brief this function calls the menu where the user can then input their choice
+        @return is int
+**/
 int menu(){
 	int choice;
 	cout<<"MENU:"<<endl;

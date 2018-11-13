@@ -1,3 +1,8 @@
+/** 
+	@file Budget.cc
+	@brief This file contains the function implementation for the Budget class
+**/
+
 #include "Budget.h"
 #include <iostream>
 #include <string>
@@ -6,6 +11,11 @@
 #include <fstream>
 
 using namespace std;
+/**
+	@brief this function resets the monthly budget with values input by the user
+	@param q is an object from the Budget class
+	@return is void, so nothing is returned
+**/
 void budget::reset(budget &q){
     cout<<"Please enter your monthly budget components"<<endl;
     cout<<"Budget constraints of car:";
@@ -18,7 +28,11 @@ void budget::reset(budget &q){
     cin>>q.food;
     cout<<"Budget constraints of utility:";
     cin>>q.utility;}
-
+/** 
+	@brief this function allows you to add to the total amount spent in certain categories
+	@param s is an object from the Budget class
+	@return is void, so nothing is returned
+**/
 void budget::get_spent(budget &s){
     cout << "Let's start! Type in how much you spent so far! \n";
     cout << "__________________________________________________ \n"; 
@@ -109,7 +123,12 @@ void budget::get_spent(budget &s){
 	cout<<"Do you want to adding another? (y/n)"<<endl;
     	cin>>opt;}
 }
-
+/**
+	@brief this function displays the current amounts that have been spent
+	@param x is an object from the budget class
+	@param y is an object from the Budget class
+	@return is void, so nothing is returned
+**/
 void budget::display(budget &x, budget &y){
     double total, spent;
     cout<<endl<<"Monthly budget report"<<endl;
@@ -131,7 +150,12 @@ void budget::display(budget &x, budget &y){
     cout<<"Total: $";
     calculate(total,spent);
 }
-
+/**
+	@brief this function calculates how the current spent amounts relate to the budget constraints
+	@param a is a double 
+	@param b ia a double
+	@return is void, so nothing is returned
+**/
 void budget::calculate(double &a, double &b){
     cout<<fixed<<showpoint<<setprecision(2);
     if(a>b){
@@ -146,6 +170,14 @@ void budget::calculate(double &a, double &b){
 	cout << " At budget limit!" << endl;
     }
 }
+
+/**
+	@brief this function inputs the information for the current spent amounts and the monthly budget constraints from a file
+	@param ins is an ifstream
+	@param x is an object of the budget class
+	@param y is an object of the budget class
+	@return is void, so nothing is returned
+**/
 void budget::input(std::ifstream &ins, budget &x, budget &y){
 	while(true){
 	ins >> x.car;
@@ -173,6 +205,14 @@ void budget::input(std::ifstream &ins, budget &x, budget &y){
 	cout << "Utilities: $" << y.utility << endl;
 	}
 }
+
+/**
+	@brief this function outputs the monthly budget and the current spent amounts to a file
+	@param outs is an ofstream
+	@param x is an object of the budget class
+	@param y is an object of the budget class
+	@return is void, so nothing is returned
+**/
 void budget::output(std::ofstream &outs, budget &x, budget &y){
 	outs << x.car << endl;
         outs << x.cloth << endl;
